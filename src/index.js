@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import {WorkoutPlus} from './components/WorkoutPlus';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <WorkoutPlus />
   </React.StrictMode>,
   document.getElementById('root')
 );
