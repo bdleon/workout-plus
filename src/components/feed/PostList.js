@@ -25,6 +25,7 @@ export const PostList = () => {
     return (
         <>
             <div>
+                <button>Create+</button>
                 {
                     posts.map(
                         (post) => {
