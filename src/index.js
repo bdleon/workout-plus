@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {WorkoutPlus} from './components/WorkoutPlus';
+import { WorkoutPlus } from './components/WorkoutPlus';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from "react-router-dom"
 
 ReactDOM.render(
   <React.StrictMode>
-    <WorkoutPlus />
+    <BrowserRouter>
+      <WorkoutPlus />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
