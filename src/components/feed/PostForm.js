@@ -90,7 +90,7 @@ export const PostForm = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">Workout description:</label>
-                        <textarea  placeholder="please be detailed as possible. include #sets,#reps,and length" name="workout-text" rows="4" cols="50" ></textarea>
+                        <textarea  placeholder="please be detailed as possible. include #sets,#reps,and length" name="workout-text" rows="20" cols="70" ></textarea>
                     </div>
 
 

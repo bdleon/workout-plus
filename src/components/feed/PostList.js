@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from "react"
+import { useHistory } from "react-router-dom";
 import './postList.css';
 
 
@@ -8,6 +9,7 @@ import './postList.css';
 export const PostList = () => {
 
     const [posts, changePosts] = useState([])
+    const history= useHistory()
 
     useEffect(
         () => {
@@ -25,7 +27,7 @@ export const PostList = () => {
     return (
         <>
             <div>
-                <button>Create+</button>
+                <button onClick={() => history.push("/posts/create")}>Create+</button>
                 {
                     posts.map(
                         (post) => {
