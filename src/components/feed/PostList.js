@@ -23,7 +23,7 @@ export const PostList = () => {
 
         }, []
     )
-    console.log(posts)
+    
     return (
         <>
             <div>
