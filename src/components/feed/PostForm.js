@@ -51,7 +51,7 @@ export const PostForm = () => {
 
         return fetch("http://localhost:8088/posts", fetchOption)
             .then(() => {
-                history.push("/")
+                history.push("/posts")
             })
 
     }
