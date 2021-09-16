@@ -20,7 +20,7 @@ export const Login = () => {
             .then(exists => {
                 if (exists) {
                     localStorage.setItem("workout_token", exists.id)
-                    history.push("/")
+                    history.push("/posts")
                 } else {
                     existDialog.current.showModal()
                 }
