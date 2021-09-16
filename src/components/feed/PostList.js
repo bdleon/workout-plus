@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react"
-import { useHistory } from "react-router-dom";
+import { useHistory,Link } from "react-router-dom";
 import './postList.css';
 
 
@@ -9,7 +9,7 @@ import './postList.css';
 export const PostList = () => {
 
     const [posts, changePosts] = useState([])
-    const history= useHistory()
+    const history = useHistory()
 
     useEffect(
         () => {
@@ -23,31 +23,32 @@ export const PostList = () => {
 
         }, []
     )
-    
+
     return (
         <>
-            <div>
-                <button onClick={() => history.push("/posts/create")}>Create+</button>
+            <button onClick={() => history.push("/posts/create")}>Create+</button>
+            <div className="post-card">
+
                 {
                     posts.map(
                         (post) => {
-                            return <div key={`post--${post.id}`}>
-                                <h2>{post.title}</h2>
+                            return <div key={`post--${post.id}`} className="post-card--card">
+                                <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2>
                                 <img alt="Category icon" src={post.workoutCategories.image} className="category_image" />
                                 <div>
-                                    <p>difficulty:{post.difficulty}</p>
+                                    <p>Difficulty:{post.difficulty}</p>
                                     <p>Category:{post.workoutCategories.type}</p>
-                                    <p>user:{post.user.name}</p>
+                                    <p>User:{post.user.name}</p>
                                 </div>
                             </div>
-     
-                
 
-                
-                
-                
-            })
-        }</div >
+
+
+
+
+
+                        })
+                }</div >
         </>
     )
 }
