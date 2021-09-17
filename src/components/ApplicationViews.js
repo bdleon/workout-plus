@@ -7,6 +7,7 @@ import { Post } from "./feed/Post"
 
 import { PostForm } from "./feed/PostForm"
 import { PostList } from "./feed/PostList"
+import Search from "./search/Search"
 
 
 
@@ -21,6 +22,9 @@ export const ApplicationViews = () => {
         </Route>
         <Route exact path="/posts/:postId(\d+)">
             <Post />
+        </Route>
+        <Route exact path="/search">
+            <Search/>
         </Route>
         
         </>
