@@ -4,6 +4,51 @@ import { useHistory } from "react-router-dom"
 export const PostForm = () => {
 
     const [workoutCategories, setWorkoutCategories] = useState([])
+    const [image, setImage] = useState({
+        beforePicture:'',
+        afterPicture:''
+    })
+    const [loading, setLoading] = useState(false)
+    const uploadBeforeImage = async upload => {
+        const files = upload.target.files
+        const data = new FormData()
+        data.append('file', files[0])
+        data.append('upload_preset', 'workout_plus')
+        setLoading(true)
+        const res = await fetch(
+            ' https://api.cloudinary.com/v1_1/dixa4dkul/image/upload',
+            {
+                method: 'POST',
+                body: data
+            }
+
+        )
+        const file = await res.json()
+        const copy = {...image}
+        copy.beforePicture =file.secure_url
+        setImage(copy)
+        setLoading(false)
+    }
+    const uploadAfterImage = async upload => {
+        const files = upload.target.files
+        const data = new FormData()
+        data.append('file', files[0])
+        data.append('upload_preset', 'workout_plus')
+        setLoading(true)
+        const res = await fetch(
+            ' https://api.cloudinary.com/v1_1/dixa4dkul/image/upload',
+            {
+                method: 'POST',
+                body: data
+            }
+
+        )
+        const file = await res.json()
+        const copy = {...image}
+        copy.afterPicture =file.secure_url
+        setImage(copy)
+        setLoading(false)
+    }
     const [post, postUpdate] = useState({
 
         title: "",
@@ -33,8 +78,8 @@ export const PostForm = () => {
             userId: parseInt(localStorage.getItem("workout_token")),
             workoutCategoriesId: post.workoutCategoryId,
             difficulty: post.difficulty,
-            beforePicture:post.beforePicture,
-            afterPicture: post.afterPicture,
+            beforePicture: image.beforePicture,
+            afterPicture: image.afterPicture,
             workoutText: post.workoutText,
             title: post.title
 
@@ -88,11 +133,11 @@ export const PostForm = () => {
                             type="text"
                             className="form-control"
                             onChange={
-                                (event)=>{
-                                    const copy = {...post}
-                                   
-                                    copy.workoutCategoryId =parseInt( event.target.value)
-                                    
+                                (event) => {
+                                    const copy = { ...post }
+
+                                    copy.workoutCategoryId = parseInt(event.target.value)
+
                                     postUpdate(copy)
                                 }
                             }
@@ -101,7 +146,7 @@ export const PostForm = () => {
                             {
                                 workoutCategories.map(
                                     (workout) => {
-                                        return <option key={workout.id} value = {workout.id}>{workout.type}</option>
+                                        return <option key={workout.id} value={workout.id}>{workout.type}</option>
                                     }
                                 )
                             }
@@ -116,14 +161,14 @@ export const PostForm = () => {
                             required autoFocus
                             type="text"
                             className="form-control"
-                            placeholder="ex. easy,medium,hard" 
+                            placeholder="ex. easy,medium,hard"
                             onChange={
                                 (event) => {
                                     const copy = { ...post }
                                     copy.difficulty = event.target.value
                                     postUpdate(copy)
                                 }
-                            }/>
+                            } />
 
                     </div>
                     <div className="form-group">
@@ -133,13 +178,7 @@ export const PostForm = () => {
                             type="file"
                             className="form-control"
                             placeholder="before picture"
-                            onChange={
-                                (event) => {
-                                    const copy = { ...post }
-                                    copy.beforePicture = event.target.value
-                                    postUpdate(copy)
-                                }
-                            } />
+                            onChange={uploadBeforeImage} />
 
                     </div>
                     <div className="form-group">
@@ -149,32 +188,26 @@ export const PostForm = () => {
                             type="file"
                             className="form-control"
                             placeholder="after picture"
-                            onChange={
-                                (event) => {
-                                    const copy = { ...post }
-                                    copy.afterPicture = event.target.value
-                                    postUpdate(copy)
-                                }
-                            } />
+                            onChange={uploadAfterImage} />
 
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">Workout description:</label>
-                        <textarea placeholder="please be detailed as possible. include #sets,#reps,and length" name="workout-text" rows="20" cols="70" 
-                        onChange={
-                            (event) => {
-                                const copy = { ...post }
-                                copy.workoutText = event.target.value
-                                postUpdate(copy)
-                            }
-                        }></textarea>
+                        <textarea placeholder="please be detailed as possible. include #sets,#reps,and length" name="workout-text" rows="20" cols="70"
+                            onChange={
+                                (event) => {
+                                    const copy = { ...post }
+                                    copy.workoutText = event.target.value
+                                    postUpdate(copy)
+                                }
+                            }></textarea>
                     </div>
 
 
                 </fieldset>
                 <button className="btn btn-primary" onClick={savePost}>
-                Submit Ticket
-            </button>
+                    Submit Ticket
+                </button>
             </form>
         </>
     )

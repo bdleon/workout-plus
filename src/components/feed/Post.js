@@ -38,7 +38,9 @@ export const Post = () => {
 
                 <div className="post__user">User:{post.user?.name}</div>
                 <h4 className="post_beforePic">Before Picture</h4>
+                <img src={post.beforePicture } alt='before picture'></img>
                 <h4 className="post_beforePic">After Picture</h4>
+                <img src={post.afterPicture} alt='after picture'></img>
                 <h4>Workout Description</h4>
                 <div className="post__text">{post.workoutText}</div>
                 <button onClick={() => history.push("/posts")}>back</button>
