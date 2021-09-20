@@ -35,11 +35,13 @@ const SearchResults = ({ searchUserInput }) => {
 
     return (
         <>
-            <h2>Search Results:</h2>
+            <h2>Search Results: {SearchInputResults ==='' ? 0:SearchInputResults.length}</h2>
+           
             {
                 SearchInputResults.length > 0 ?
                     SearchInputResults.map( result => {
                         return <div key={`post--${result.id}`} className="post-card--card">
+                           
                         <h2><Link to={`/posts/${result.id}`}>{result.title}</Link></h2>
                         <img alt="Category icon" src={result.workoutCategories.image} className="category_image" />
                         <div>

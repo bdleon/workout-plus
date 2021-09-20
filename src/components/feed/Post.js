@@ -53,6 +53,13 @@ export const Post = () => {
                     : ""
 
                 }
+                {post.userId === parseInt(localStorage.getItem("workout_token")) ?
+                    <>
+                        <button onClick={() => history.push(`/posts/edit/${post.id}`)}>Edit</button>
+                    </>
+                    : ""
+
+                }
 
 
             </section>
