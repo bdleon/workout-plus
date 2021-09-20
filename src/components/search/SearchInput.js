@@ -1,32 +1,26 @@
-import { useState,useEffect } from "react";
-const SearchInput = () =>{
-// userinput is controlled by the Search component
-const [userInput, setUserInput] = useState([]);
-const handleChange = e => {
-    setUserInput(e.target.value);
-  };
 
-  const addItem = e => {
-    if (userInput !== "") {
+const SearchInput = ({ updateSearchState }) => {
+   
     
-      setUserInput("");
-    }
-  };
 
-    return(
+    return (
         <>
 
-<form>
-          <input
-            placeholder="Something that needs to be done..."
-            value={userInput}
-            onChange={handleChange}
-          />
-          <button type="button" onClick={addItem}>
-            {'Add Item'}
-          </button>
-        </form>
-     
+            <form>
+                <input
+                    placeholder="search here"
+                    className="search"
+                    required autoFocus
+                    onChange={
+                        (event)=>{
+                            const search = event.target.value
+                            updateSearchState(search)
+                        }
+                    }
+                />
+
+            </form>
+
         </>
     )
 }

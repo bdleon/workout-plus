@@ -206,7 +206,7 @@ export const PostForm = () => {
 
                 </fieldset>
                 <button className="btn btn-primary" onClick={savePost}>
-                    Submit Ticket
+                    Submit Post
                 </button>
             </form>
         </>

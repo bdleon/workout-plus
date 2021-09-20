@@ -3,17 +3,17 @@ import SearchInput from "./SearchInput"
 import SearchResults from "./SearchResults"
 const Search = () => {
     const [userInput, setUserInput] = useState("");
-    const [user,setUser] = useState([])
+    const [user, setUser] = useState([])
     // userinput is controlled by the Search component
     const handleChange = e => {
-      setUserInput(e.target.value);
+        setUserInput(e.target.value);
     };
-  
+
     const addItem = e => {
-      if (userInput !== "") {
-      
-        setUserInput("");
-      }
+        if (userInput !== "") {
+
+            setUserInput("");
+        }
     };
     useEffect(
         () => {
@@ -27,16 +27,17 @@ const Search = () => {
 
         }, []
     )
-  
-    
-  
+
+
+
     return (
-      <>
-      <SearchInput onChange={()=>handleChange()}/>
-      <SearchResults onChange={()=>addItem()}/>
-    
-       </>
+        <>
+            <h2>Search Posts</h2>
+            <SearchInput updateSearchState={setUserInput} />
+            <SearchResults searchUserInput={userInput} />
+
+        </>
     );
-  }
-  
-  export default Search;
+}
+
+export default Search;

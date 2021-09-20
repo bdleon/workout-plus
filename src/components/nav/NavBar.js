@@ -10,10 +10,10 @@ export const NavBar = () => {
                 <Link className="navbar__link" to="/posts">Logo</Link>
             </li>
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/category">category</Link>
+                <Link className="navbar__link" to="/category">Category</Link>
             </li>
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/search">search</Link>
+                <Link className="navbar__link" to="/search">Search</Link>
             </li>
             <li className="navbar__item active">
                 <Link className="navbar__link" to="#"
