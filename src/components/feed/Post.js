@@ -38,7 +38,7 @@ export const Post = () => {
 
                 <div className="post__user">User:{post.user?.name}</div>
                 <h4 className="post_beforePic">Before Picture</h4>
-                <img src={post.beforePicture } alt='before picture'></img>
+                <img src={post.beforePicture} alt='before picture'></img>
                 <h4 className="post_beforePic">After Picture</h4>
                 <img src={post.afterPicture} alt='after picture'></img>
                 <h4>Workout Description</h4>
@@ -49,6 +49,13 @@ export const Post = () => {
                         <button onClick={() => {
                             deletePost(post.id)
                         }}>Delete</button>
+                    </>
+                    : ""
+
+                }
+                {post.userId === parseInt(localStorage.getItem("workout_token")) ?
+                    <>
+                        <button onClick={() => history.push(`/posts/edit/${post.id}`)}>Edit</button>
                     </>
                     : ""
 
