@@ -1,10 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { Post } from "./feed/Post"
-
-
-
-
+import { PostEdit } from "./feed/PostEdit"
 import { PostForm } from "./feed/PostForm"
 import { PostList } from "./feed/PostList"
 import Search from "./search/Search"
@@ -25,6 +22,9 @@ export const ApplicationViews = () => {
         </Route>
         <Route exact path="/search">
             <Search/>
+        </Route>
+        <Route exact path="/posts/edit/:postId(\d+)">
+            <PostEdit/>
         </Route>
         
         </>
