@@ -29,7 +29,7 @@ export const Register = (props) => {
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
                                 localStorage.setItem("workout_token", createdUser.id)
-                                history.push("/")
+                                history.push("/posts")
                             }
                         })
                 }
@@ -64,6 +64,10 @@ export const Register = (props) => {
                 <fieldset>
                     <label htmlFor="email"> Email address </label>
                     <input onChange={updateUser} type="email" id="email" className="form-control" placeholder="Email address" required />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="password"> password </label>
+                    <input onChange={updateUser} type="password" id="password" className="form-control" placeholder="User password" required />
                 </fieldset>
                 <fieldset>
                     <button type="submit"> Register </button>

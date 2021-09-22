@@ -5,11 +5,12 @@ import "./Login.css"
 
 export const Login = () => {
     const [email, set] = useState("")
+    const [password,setPassword] = useState("")
     const existDialog = useRef()
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:8088/users?email=${email}`)
+        return fetch(`http://localhost:8088/users?email=${email}&password=${password}`)
             .then(res => res.json())
             .then(user => user.length ? user[0] : false)
     }
@@ -44,6 +45,14 @@ export const Login = () => {
                             onChange={evt => set(evt.target.value)}
                             className="form-control"
                             placeholder="Email address"
+                            required autoFocus />
+                    </fieldset>
+                    <fieldset>
+                        <label htmlFor="inputPassword"> Password </label>
+                        <input type="password"
+                            onChange={evt => setPassword(evt.target.value)}
+                            className="form-control"
+                            placeholder="password"
                             required autoFocus />
                     </fieldset>
                     <fieldset>
