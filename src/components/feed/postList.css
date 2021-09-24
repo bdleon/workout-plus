@@ -6,7 +6,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     justify-content: space-around;
-    flex-direction: row;
+    
     
 }
 .post-card--card{
@@ -16,4 +16,6 @@
     margin: 5px;
     width: 30%;
     text-align: center;
+    flex-wrap: wrap;
+    
 }

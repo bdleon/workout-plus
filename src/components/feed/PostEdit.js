@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useHistory, useParams } from "react-router-dom"
+import './PostForm.css'
 
 export const PostEdit = () => {
     const [post, updatePost] = useState({

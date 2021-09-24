@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
+import "./Post.css"
 
 export const Post = () => {
     const [post, update] = useState({})
@@ -42,7 +43,7 @@ export const Post = () => {
                 <h4 className="post_beforePic">After Picture</h4>
                 <img src={post.afterPicture} alt='after picture'></img>
                 <h4>Workout Description</h4>
-                <div className="post__text">{post.workoutText}</div>
+                <div className="post__text" >{post.workoutText}</div>
                 <button onClick={() => history.push("/posts")}>back</button>
                 {post.userId === parseInt(localStorage.getItem("workout_token")) ?
                     <>
