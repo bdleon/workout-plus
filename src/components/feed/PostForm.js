@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
+import './PostForm.css'
+import Form from 'react-bootstrap/Form'
 
 export const PostForm = () => {
 
     const [workoutCategories, setWorkoutCategories] = useState([])
     const [image, setImage] = useState({
-        beforePicture:'',
-        afterPicture:''
+        beforePicture: '',
+        afterPicture: ''
     })
     const [loading, setLoading] = useState(false)
     const uploadBeforeImage = async upload => {
@@ -24,8 +26,8 @@ export const PostForm = () => {
 
         )
         const file = await res.json()
-        const copy = {...image}
-        copy.beforePicture =file.secure_url
+        const copy = { ...image }
+        copy.beforePicture = file.secure_url
         setImage(copy)
         setLoading(false)
     }
@@ -44,8 +46,8 @@ export const PostForm = () => {
 
         )
         const file = await res.json()
-        const copy = {...image}
-        copy.afterPicture =file.secure_url
+        const copy = { ...image }
+        copy.afterPicture = file.secure_url
         setImage(copy)
         setLoading(false)
     }
@@ -105,7 +107,7 @@ export const PostForm = () => {
 
 
     return (
-        <>
+        <><div>
             <form className="postForm">
                 <h2 className='postForm_title'>Create Post</h2>
                 <fieldset>
@@ -119,8 +121,9 @@ export const PostForm = () => {
                             placeholder="ex. spiderman pushup"
                             onChange={
                                 (event) => {
-                                    const copy = { ...post }
+                                    let copy = { ...post }
                                     copy.title = event.target.value
+                                    
                                     postUpdate(copy)
                                 }
                             } />
@@ -142,7 +145,7 @@ export const PostForm = () => {
                                 }
                             }
                         >
-                            <option> -------- </option>
+                            <option> Select a category </option>
                             {
                                 workoutCategories.map(
                                     (workout) => {
@@ -157,7 +160,7 @@ export const PostForm = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">Difficulty:</label>
-                        <input
+                        <select
                             required autoFocus
                             type="text"
                             className="form-control"
@@ -168,7 +171,15 @@ export const PostForm = () => {
                                     copy.difficulty = event.target.value
                                     postUpdate(copy)
                                 }
-                            } />
+                            } required>
+                                <option>Select Difficulty</option>
+                                <option>Easy</option>
+                                <option>Medium</option>
+                                <option>Hard</option>
+                                <option>Pro</option>
+                                <option>Warning: Do on your on risk</option>
+
+                            </select>
 
                     </div>
                     <div className="form-group">
@@ -193,22 +204,24 @@ export const PostForm = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">Workout description:</label>
-                        <textarea placeholder="please be detailed as possible. include #sets,#reps,and length" name="workout-text" rows="20" cols="70"
+                        <textarea placeholder="please be detailed as possible. include #sets,#reps,and length" name="workout-text" rows="7"
                             onChange={
                                 (event) => {
                                     const copy = { ...post }
                                     copy.workoutText = event.target.value
                                     postUpdate(copy)
                                 }
-                            }></textarea>
+                            }required></textarea>
                     </div>
 
 
                 </fieldset>
-                <button className="btn btn-primary" onClick={savePost}>
+                <button className="btn btn-primary" onClick={savePost} type="submit">
                     Submit Post
                 </button>
             </form>
+        </div>
+      
         </>
     )
 }
