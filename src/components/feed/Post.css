@@ -1,3 +1,26 @@
 .post__text{
     white-space: pre-wrap;
 }
+.post {
+    margin-left: 15%;
+    margin-right:15%;
+    margin-top: 5%;
+    margin-bottom: 15%;
+    width: 70%;
+}
+.post__title{
+    text-align: center;
+}
+
+.post__sub-description{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10%;
+}
+.transformation__picture{
+    display: flex;
+    margin-top: 10%;
+    
+    justify-content: space-evenly;
+    
+}

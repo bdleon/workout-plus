@@ -1,21 +1,32 @@
-.category_image{
-    width: 150px;
-}
+
 .post-card{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     justify-content: space-around;
+   margin-left: 10%;
+   margin-right: 10%;
     
     
 }
 .post-card--card{
-    border: solid black 2px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 5px;
-    width: 30%;
+    margin-bottom: 50px;
+   
+}
+
+.card{
+   margin-top: 10%;
+   
+   height: 100%;
+}
+.card-title{
     text-align: center;
-    flex-wrap: wrap;
-    
+    padding-bottom: 20px;
+}
+
+.card-img-top{
+    height: 300px;
+}
+.create-post--button{
+    margin-left: 10px;
 }
