@@ -34,15 +34,24 @@ export const Post = () => {
             <h2>Post Details</h2>
             <section className="post">
                 <h3 className="post__title">{post.title}</h3>
+                <div className="post__sub-description">
                 <div className="post__difficulty">Difficulty:{post.difficulty}</div>
                 <div className="post__workoutCategories">Category:{post.workoutCategories?.type}</div>
 
                 <div className="post__user">User:{post.user?.name}</div>
+                </div>
+                <div className="transformation__picture">
+                    <div className="transformation__picture-group">
                 <h4 className="post_beforePic">Before Picture</h4>
                 <img src={post.beforePicture} alt='before picture'></img>
+                </div>
+                <div className="transformation__picture-group">
                 <h4 className="post_beforePic">After Picture</h4>
                 <img src={post.afterPicture} alt='after picture'></img>
+                </div>
+                </div>
                 <h4>Workout Description</h4>
+                
                 <div className="post__text" >{post.workoutText}</div>
                 <button onClick={() => history.push("/posts")}>back</button>
                 {post.userId === parseInt(localStorage.getItem("workout_token")) ?
