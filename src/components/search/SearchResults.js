@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import './SearchResults.css';
+
 
 
 const SearchResults = ({ searchUserInput }) => {
@@ -35,25 +39,34 @@ const SearchResults = ({ searchUserInput }) => {
 
     return (
         <>
-            <h2>Search Results: {SearchInputResults ==='' ? 0:SearchInputResults.length}</h2>
-           
+            <h2 className="search-results-title">Search Results: {SearchInputResults ==='' ? 0:SearchInputResults.length}</h2>
+            <div className="post-card">
             {
                 SearchInputResults.length > 0 ?
                     SearchInputResults.map( result => {
-                        return <div key={`post--${result.id}`} className="post-card--card">
-                           
-                        <h2><Link to={`/posts/${result.id}`}>{result.title}</Link></h2>
-                        <img alt="Category icon" src={result.workoutCategories.image} className="category_image" />
-                        <div>
-                            <p>Difficulty:{result.difficulty}</p>
-                            <p>Category:{result.workoutCategories.type}</p>
-                            <p>User:{result.user.name}</p>
-                        </div>
+                        return <div key={`result--${result.id}`} className="result-card--card">
+                        
+                        <Card className="card" style={{ width: '19rem' }}>
+                            <Card.Img variant="top" src={result.workoutCategories.image} />
+                            <Card.Body>
+                                <Card.Title>{result.title}</Card.Title>
+                                <Card.Text>
+                                Difficulty:{result.difficulty}
+                                </Card.Text>
+                                <Card.Text>
+                                Category:{result.workoutCategories.type}
+                                </Card.Text>
+                                <Card.Text>
+                                User:{result.user.name}
+                                </Card.Text>
+                                <Link to={`/posts/${result.id}`}>  <Button variant="primary">More info</Button></Link>
+                            </Card.Body>
+                        </Card>
                     </div>
 
                     })
                     : ""
-            }
+            }</div>
         </>
     )
 }
