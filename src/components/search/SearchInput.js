@@ -1,4 +1,4 @@
-
+import './SearchResults.css';
 const SearchInput = ({ updateSearchState }) => {
    
     
@@ -6,7 +6,7 @@ const SearchInput = ({ updateSearchState }) => {
     return (
         <>
 
-            <form>
+            <form className="search-form">
                 <input
                     placeholder="search here"
                     className="search"
