@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import "./Post.css"
+import Button from 'react-bootstrap/Button'
 
 export const Post = () => {
     const [post, update] = useState({})
@@ -35,10 +36,10 @@ export const Post = () => {
             <section className="post">
                 <h3 className="post__title">{post.title}</h3>
                 <div className="post__sub-description">
-                <div className="post__difficulty">Difficulty:{post.difficulty}</div>
-                <div className="post__workoutCategories">Category:{post.workoutCategories?.type}</div>
+                <div className="post__difficulty">Difficulty: {post.difficulty}</div>
+                <div className="post__workoutCategories">Category: {post.workoutCategories?.type}</div>
 
-                <div className="post__user">User:{post.user?.name}</div>
+                <div className="post__user">User: {post.user?.name}</div>
                 </div>
                 <div className="transformation__picture">
                     <div className="transformation__picture-group">
@@ -53,19 +54,19 @@ export const Post = () => {
                 <h4>Workout Description</h4>
                 
                 <div className="post__text" >{post.workoutText}</div>
-                <button onClick={() => history.push("/posts")}>back</button>
+                <Button onClick={() => history.push("/posts")}>back</Button>
                 {post.userId === parseInt(localStorage.getItem("workout_token")) ?
                     <>
-                        <button onClick={() => {
+                        <Button onClick={() => {
                             deletePost(post.id)
-                        }}>Delete</button>
+                        }}>Delete</Button>
                     </>
                     : ""
 
                 }
                 {post.userId === parseInt(localStorage.getItem("workout_token")) ?
                     <>
-                        <button onClick={() => history.push(`/posts/edit/${post.id}`)}>Edit</button>
+                        <Button onClick={() => history.push(`/posts/edit/${post.id}`)}>Edit</Button>
                     </>
                     : ""
 

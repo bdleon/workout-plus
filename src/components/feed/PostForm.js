@@ -126,7 +126,7 @@ export const PostForm = () => {
                                     
                                     postUpdate(copy)
                                 }
-                            } />
+                            }/>
                     </div>
                     <div className="form-group">
 
@@ -161,7 +161,7 @@ export const PostForm = () => {
                     <div className="form-group">
                         <label htmlFor="description">Difficulty:</label>
                         <select
-                            required autoFocus
+                            
                             type="text"
                             className="form-control"
                             placeholder="ex. easy,medium,hard"
@@ -171,7 +171,7 @@ export const PostForm = () => {
                                     copy.difficulty = event.target.value
                                     postUpdate(copy)
                                 }
-                            } required>
+                            } required autoFocus>
                                 <option>Select Difficulty</option>
                                 <option>Easy</option>
                                 <option>Medium</option>
@@ -216,7 +216,7 @@ export const PostForm = () => {
 
 
                 </fieldset>
-                <button className="btn btn-primary" onClick={savePost} type="submit">
+                <button className="btn btn-primary" onClick={savePost} type="submit" >
                     Submit Post
                 </button>
             </form>

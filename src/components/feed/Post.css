@@ -7,6 +7,11 @@
     margin-top: 5%;
     margin-bottom: 15%;
     width: 70%;
+    font-family: Helvetica, sans-serif;
+    background-color: rgb(245, 245, 245);
+    border-radius: 15px;
+    padding: 20px
+
 }
 .post__title{
     text-align: center;
@@ -23,4 +28,9 @@
     
     justify-content: space-evenly;
     
+}
+
+.btn-primary{
+    margin-top: 10px;
+    margin-right: 10px;
 }

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react"
 import { useHistory } from "react-router-dom"
 import "./Login.css"
+import Button from 'react-bootstrap/Button'
 
 export const Register = (props) => {
     const [user, setUser] = useState({})
@@ -70,7 +71,7 @@ export const Register = (props) => {
                     <input onChange={updateUser} type="password" id="password" className="form-control" placeholder="User password" required />
                 </fieldset>
                 <fieldset>
-                    <button type="submit"> Register </button>
+                    <Button type="submit"> Register </Button>
                 </fieldset>
             </form>
         </main>

@@ -10,3 +10,8 @@ textarea{
     white-space: pre-wrap;
     
 }
+
+.post-edit--form{
+    margin-left: 10%;
+    margin-right: 10%;
+}
