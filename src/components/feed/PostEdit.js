@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import './PostForm.css'
+import "./Post.css"
+import Button from 'react-bootstrap/Button'
 
 export const PostEdit = () => {
     const [post, updatePost] = useState({
@@ -51,7 +53,7 @@ export const PostEdit = () => {
     }
     return (
         <>
-            <section>
+            <section className="post-edit--form">
                 <h2>Post Edit</h2>
                 <p>User: {post.user?.name}</p>
                 <label>Edit Workout Description</label>
@@ -63,8 +65,8 @@ export const PostEdit = () => {
                             updatePost(copy)
                         }
                     }></textarea>
-                    <button onClick={()=>history.push(`/posts/${post.id}`)}>back</button>
-                    <button onClick={saveEditPost}>Summit Post</button>
+                    <Button onClick={()=>history.push(`/posts/${post.id}`)}>back</Button>
+                    <Button onClick={saveEditPost}>Summit Post</Button>
                     
             </section>
         </>
